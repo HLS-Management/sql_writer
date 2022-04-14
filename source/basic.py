@@ -6,6 +6,8 @@ def select(table: str, fields: list = ["*", ], query_fields: list = None):
     # Check all attributes are valid types including the attributes within the lists
     if isinstance(table, str) is False and isinstance(table, int) is False:
         raise TypeError(f"Table must be type list; currently {type(table)}")
+    if len(table) == 0:
+        raise UnboundLocalError("Table must have a valid value")
     if isinstance(fields, list) is False:
         raise TypeError(f"Fields must be type list; currently {type(fields)}")
     if query_fields is not None and isinstance(query_fields, list) is False:
